@@ -12,6 +12,10 @@ describe('displayPrice', () => {
   it('shows a single-variant product', () => {
     expect(displayPrice(productById('field-notebook')!)).toBe('$12.00')
   })
+
+  it('falls back to the from-price for a product with no variants', () => {
+    expect(displayPrice(productById('gift-card')!)).toBe('$25.00')
+  })
 })
 
 describe('listPrice', () => {
